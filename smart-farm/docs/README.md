@@ -5,11 +5,11 @@
 powershell -ExecutionPolicy Bypass -File .\auto_report.ps1
 ```
 ## Checklist kiểm tra thiết bị
-- [x] Kiểm tra kết nối mạng và tín hiệu sóng tại các trạm cảm biến ngoài trời
+[x] Kiểm tra kết nối mạng và tín hiệu sóng tại các trạm cảm biến ngoài trời
 
-- [ ] Cấu hình lại ngưỡng cảnh báo mục do CRITICAL trên máy chủ trung tâm
+[ ] Cấu hình lại ngưỡng cảnh báo mục do CRITICAL trên máy chủ trung tâm
 
-- [x] Sao lưu định kỳ dữ liệu log vào thư mục backup an toàn
+[x] Sao lưu định kỳ dữ liệu log vào thư mục backup an toàn
 ## Bảng thông số phần cứng 
 | Tên thiết bị | Đơn giá | Loại Storage| 
 | :--- | :--- | :--- |
