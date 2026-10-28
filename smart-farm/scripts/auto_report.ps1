@@ -1,13 +1,13 @@
-BÁO CÁO SỰ CỐ-SmartFarm
-Ngày thục hiện:13/10/2026 07:15
-=====================================
-2026-10-12 08:15:01 [ERROR] sensor-03 Connection TIMEOUT after 30s
-2026-10-12 08:40:09 [ERROR] api 404 Not Found /api/sensor/12
-2026-10-12 09:03:17 [ERROR] sensor-03 Connection TIMEOUT after 30s
-2026-10-12 09:25:36 [CRITICAL] database Disk usage 97% on /var/lib/db
-2026-10-12 10:02:48 [ERROR] sensor-03 Connection TIMEOUT after 30s
-2026-10-12 11:01:23 [ERROR] api 404 Not Found /api/sensor/27
-2026-10-12 11:12:37 [CRITICAL] sensor-03 Power supply failure
-2026-10-12 12:20:46 [ERROR] sensor-05 Connection TIMEOUT after 30s
----------------------------------------------
-TONG SO SU CO:8
+# AUDIT: xác nhận đã thẩm định script
+$date = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
+"BAO CAO SU CO HE THONG" | Out-File -FilePath "..\backup\bao-cao-su-co.txt" -Encoding utf8
+"Thoi gian tao: $date" | Out-File -FilePath "..\backup\bao-cao-su-co.txt" -Append -Encoding utf8
+"----------------------------------------" | Out-File -FilePath "..\backup\bao-cao-su-co.txt" -Append -Encoding utf8
+
+# Lọc log ERROR hoặc CRITICAL ghi vào báo cáo
+Get-Content "..\data\log-he-thong.log" | Select-String "CRITICAL", "ERROR" | Out-File -FilePath "..\backup\bao-cao-su-co.txt" -Append -Encoding utf8
+
+# Đếm số dòng lỗi
+$errorCount = (Get-Content "..\data\log-he-thong.log" | Select-String "CRITICAL", "ERROR").Count
+"----------------------------------------" | Out-File -FilePath "..\backup\bao-cao-su-co.txt" -Append -Encoding utf8
+"TONG SO SU CO: $errorCount" | Out-File -FilePath "..\backup\bao-cao-su-co.txt" -Append -Encoding utf8
